@@ -1,0 +1,2 @@
+module WtfsHelper
+end

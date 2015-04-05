@@ -1,0 +1,14 @@
+csv file path for scrapy 
+"/home/achillies/first/HumorApp/DataCrawling/wtfoutput"
+"/home/achillies/first/HumorApp/DataCrawling/cuteoutput"
+"/home/achillies/first/HumorApp/DataCrawling/geekyoutput"
+"/home/achillies/first/HumorApp/DataCrawling/memeoutput"
+"/home/achillies/first/HumorApp/DataCrawling/girloutput"
+
+url link path for scrapy 
+
+"http://9gag.com/wtf/fresh"
+"http://9gag.com/cute/fresh"
+"http://9gag.com/girl/fresh"
+"http://9gag.com/meme/fresh"
+"http://9gag.com/geeky/fresh"

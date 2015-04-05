@@ -1,0 +1,31 @@
+<% @girls.each do |girl| %>
+    <div class="link row clearfix">
+      <h2>
+        <% girl %>
+        <%= link_to girl.title, girl %><br>
+        <!-- <small class="author">Submitted <%= time_ago_in_words(girl.created_at) %> by <%= girl.user.name %></small> -->
+      </h2>
+      <div>
+        <a>
+          <img src="<%= girl.url %>">
+        </a>
+      </div>
+
+      <div class="btn-group">
+
+        <a class="btn btn-default btn-sm" href="<%= girl.url %>">Visit Link</a>
+        <%= link_to  like_girl_path(girl), method: :put, class: "btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-chevron-up"></span>
+            Upvote
+            <%= girl.get_upvotes.size %>
+        <% end %>
+        <%= link_to dislike_girl_path(girl), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-down">
+        Downvote
+          <%= girl.get_downvotes.size %>
+        </span>
+        <% end %>
+      </div>
+    </div>
+
+<% end %>

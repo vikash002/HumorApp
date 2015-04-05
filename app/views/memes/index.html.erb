@@ -1,0 +1,31 @@
+<% @memes.each do |meme| %>
+    <div class="link row clearfix">
+      <h2>
+        <% meme %>
+        <%= link_to meme.title, meme %><br>
+        <!-- <small class="author">Submitted <%= time_ago_in_words(meme.created_at) %> by <%= meme.user.name %></small> -->
+      </h2>
+      <div>
+        <a>
+          <img src="<%= meme.url %>">
+        </a>
+      </div>
+
+      <div class="btn-group">
+
+        <a class="btn btn-default btn-sm" href="<%= meme.url %>">Visit Link</a>
+        <%= link_to  like_meme_path(meme), method: :put, class: "btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-chevron-up"></span>
+            Upvote
+            <%= meme.get_upvotes.size %>
+        <% end %>
+        <%= link_to dislike_meme_path(meme), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-down">
+        Downvote
+          <%= meme.get_downvotes.size %>
+        </span>
+        <% end %>
+      </div>
+    </div>
+
+<% end %>

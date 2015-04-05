@@ -1,0 +1,31 @@
+<% @wtfs.each do |wtf| %>
+    <div class="link row clearfix">
+      <h2>
+        <% wtf %>
+        <%= link_to wtf.title, wtf %><br>
+        <!-- <small class="author">Submitted <%= time_ago_in_words(wtf.created_at) %> by <%= wtf.user.name %></small> -->
+      </h2>
+      <div>
+        <a>
+          <img src="<%= wtf.url %>">
+        </a>
+      </div>
+
+      <div class="btn-group">
+
+        <a class="btn btn-default btn-sm" href="<%= wtf.url %>">Visit Link</a>
+        <%= link_to  like_wtf_path(wtf), method: :put, class: "btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-chevron-up"></span>
+            Upvote
+            <%= wtf.get_upvotes.size %>
+        <% end %>
+        <%= link_to dislike_wtf_path(wtf), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-down">
+        Downvote
+          <%= wtf.get_downvotes.size %>
+        </span>
+        <% end %>
+      </div>
+    </div>
+
+<% end %>

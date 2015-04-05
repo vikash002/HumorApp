@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1><a href=<%= @meme.url %>><%= @meme.title %></a><br> <small>Submitted by <%= @meme.user.name %></small></h1>
+</div>
+
+<div class="btn-group">
+
+  <%= link_to 'Visit URL', @meme.url, class: "btn btn-primary" %>
+</div>
+
+<div class="btn-group pull-right">
+  <%= link_to like_meme_path(@meme), method: :put, class: "btn btn-default btn-sm" do %>
+      <span class="glyphicon glyphicon-chevron-up"></span>
+      Upvote
+      <%= @meme.get_upvotes.size %>
+  <% end %>
+  <%= link_to dislike_meme_path(@meme), method: :put, class: "btn btn-default btn-sm" do %>
+    <span class="glyphicon glyphicon-chevron-down">
+    Downvote
+      <%= @meme.get_downvotes.size %>
+    </span>
+  <% end %>
+</div>
+
+<% if @meme.user == current_user -%>
+    <div class="btn-group">
+      <%= link_to 'Edit', edit_meme_path(@meme), class: "btn btn-default" %>
+      <%= link_to 'Destroy', @meme, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+    </div>
+<% end %>
+
+
+
+
