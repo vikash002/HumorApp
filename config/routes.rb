@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       put "like", to:    "cutes#upvote"
       put "dislike", to: "cutes#downvote"
     end
-    resources :commentgs
+    resources :cmtcs
   end
 
   resources :girls do
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       put "like", to:    "girls#upvote"
       put "dislike", to: "girls#downvote"
     end
-    resources :commentgs
+    resources :cmtgls
   end
 
   resources :wtfs do
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       put "like", to:    "wtfs#upvote"
       put "dislike", to: "wtfs#downvote"
     end
-    resources :commentgs
+    resources :cmtws
   end
 
   resources :memes do
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       put "like", to:    "memes#upvote"
       put "dislike", to: "memes#downvote"
     end
-    resources :commentgs
+    resources :cmtms
   end
 
   resources :gkeeys do
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
       put "like", to:    "gkeeys#upvote"
       put "dislike", to: "gkeeys#downvote"
     end
-    resources :commentgs
+    resources :cmtgs
   end
 
   resources :comments
@@ -49,10 +49,11 @@ Rails.application.routes.draw do
     member do
       put "like", to:    "links#upvote"
       put "dislike", to: "links#downvote"
+      put "topic", tp:   "links"
     end
     resources :comments
   end
-  root "links#index"
+  root "links#topic"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

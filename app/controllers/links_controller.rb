@@ -1,12 +1,18 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :topic]
   before_action :authorized_user, only: [:edit, :update, :destroy]
+  before_action :show_link, only:[:topic]
 
   # GET /links
   # GET /links.json
+
+  @tt
+  def topic
+
+  end
   def index
-    @links = Link.all
+    @links = Link.all.where("topic = ?", params[:title])
   end
 
   # GET /links/1
@@ -79,7 +85,7 @@ class LinksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def show_link
-      @show = Link.all.where("topic = ?", params[:topic])
+      @show = Topic.all
     end
     def set_link
       @link = Link.find(params[:id])
@@ -93,5 +99,8 @@ class LinksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
       params.require(:link).permit(:title, :url, :topic)
+    end
+    def index_params
+
     end
 end

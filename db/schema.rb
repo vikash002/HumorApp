@@ -11,18 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150405071453) do
-
-  create_table "commentgs", force: true do |t|
-    t.integer  "link_id"
-    t.text     "body"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "commentgs", ["link_id"], name: "index_commentgs_on_link_id"
-  add_index "commentgs", ["user_id"], name: "index_commentgs_on_user_id"
+ActiveRecord::Schema.define(version: 20150405121053) do
 
   create_table "comments", force: true do |t|
     t.integer  "link_id"
@@ -35,35 +24,6 @@ ActiveRecord::Schema.define(version: 20150405071453) do
   add_index "comments", ["link_id"], name: "index_comments_on_link_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
-  create_table "cutes", force: true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  add_index "cutes", ["user_id"], name: "index_cutes_on_user_id"
-
-  create_table "girls", force: true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  add_index "girls", ["user_id"], name: "index_girls_on_user_id"
-
-  create_table "gkeeys", force: true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  add_index "gkeeys", ["user_id"], name: "index_gkeeys_on_user_id"
 
   create_table "links", force: true do |t|
     t.string   "title"
@@ -76,15 +36,6 @@ ActiveRecord::Schema.define(version: 20150405071453) do
 
   add_index "links", ["user_id"], name: "index_links_on_user_id"
 
-  create_table "memes", force: true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  add_index "memes", ["user_id"], name: "index_memes_on_user_id"
 
   create_table "topics", force: true do |t|
     t.string   "title"
@@ -126,14 +77,5 @@ ActiveRecord::Schema.define(version: 20150405071453) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
 
-  create_table "wtfs", force: true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  add_index "wtfs", ["user_id"], name: "index_wtfs_on_user_id"
 
 end
